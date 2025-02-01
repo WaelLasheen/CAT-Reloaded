@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int c=0, m=0, x=s.size()-1;    // c / m : counter to characters / speaces
+        for(int i=0;i<s.size();i++){
+            if( c !=0 && m !=0)
+                return  c;
+            else if( s[x-i] != ' '){
+                c++;
+                m=0;
+                }
+            else if( s[x-i] == ' ')
+                m++;
+        }
+        return c;
+    }
+};

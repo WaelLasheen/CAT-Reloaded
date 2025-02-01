@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int mostWordsFound(vector<string>& sentences) {
+        int s=1,m=0;    // s : counter to the speace sentencs & m : is the max value in s
+        for(int i=0;i<sentences.size();i++){
+            for(int j=0;j<sentences[i].size();j++){
+                if(sentences[i][j] ==' ')
+                   s++;
+                m=max(m,s);
+            }
+            s=1;            
+        }
+        return m;       
+    }
+};

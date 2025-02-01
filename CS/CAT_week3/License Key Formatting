@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string licenseKeyFormatting(string s, int k) {
+        int d=k;
+        string ans;
+        for(int i=s.size()-1;i>=0;i--){
+            if(s[i] !='-' && d !=0){
+                ans.insert(0,1,toupper(s[i]));
+                d--;
+            }
+            else if(s[i] !='-' && d ==0){
+                ans.insert(0,1,'-');
+                ans.insert(0,1,toupper(s[i]));
+                d=k-1;
+            }
+        }
+        return ans;
+    }
+};

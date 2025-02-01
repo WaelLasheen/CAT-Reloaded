@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string ans;
+        int m = max(num1.size(),num2.size());
+        int n1=num1.size(),n2=num2.size();
+        int a,b,r=0,sum;     // r is the reminden if sum > 9
+        for(int i=0;i<m;i++){
+            num1.size() <= i ? a=0 : (a=num1[n1-1-i]-48) ;
+            num2.size() <= i ? b=0 : (b=num2[n2-1-i]-48) ;
+            sum = a+b+r;
+            sum > 9 ? r=1 : r=0;
+            ans.insert(0, to_string(sum % 10));
+        }
+        if(r==1)
+        ans.insert(0,1,'1');
+        return ans;
+    }
+};

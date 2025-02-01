@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int countBinarySubstrings(string s) {
+       int i=0,c0=1,c1=1,sum=0;            // c0 / c1 is a counter to contines zeros / ones
+       vector<int> x;
+       while(i < s.size()){
+           if(s[i] =='0'){
+               if(s[i]==s[i+1])
+               c0 +=1;
+               else{
+                   x.push_back(c0);
+                   c0=1;
+               }
+           } 
+           else{
+               if(s[i]==s[i+1])
+               c1 +=1;
+               else{
+                   x.push_back(c1);
+                   c1=1;
+               }
+           }
+           i++;
+       }
+       for(i=0;i<x.size()-1;i++){
+           if(x[i] <= x[i+1])
+           sum += x[i];
+           else
+           sum += x[i+1];
+       } 
+       return sum; 
+    }
+};
