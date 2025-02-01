@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findLength(vector<int>& nums1, vector<int>& nums2) {
+        int s1=nums1.size(),s2=nums2.size() , ans=0;
+        int tab[s1+1][s2+1];
+        for(int row=0;row<=s1;row++){
+            for(int col=0;col<=s2;col++){
+                if(row ==0 || col ==0)
+                    tab[row][col]=0;
+                else if(nums1[row-1] == nums2[col-1])
+                    tab[row][col] = tab[row-1][col-1]+1;
+                else 
+                    tab[row][col]=0;
+                ans=max(ans,tab[row][col]);
+            }
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,27 @@
+class Solution
+{
+    public:
+    //Function to find the maximum number of meetings that can
+    static bool cmp(pair<int,pair<int,int>>&a ,pair<int,pair<int,int>>&b ){
+        return a.second.second < b.second.second;
+    }
+    //be performed in a meeting room.
+    int maxMeetings(int start[], int end[], int n)
+    {
+        // Your code here
+        vector<pair<int,pair<int,int>>> t;
+        for(int i=0;i<n;i++){
+            t.push_back({i, { start[i] , end[i] } });
+        }
+        sort(t.begin(),t.end(),cmp);
+        int c=1;
+        int l=t[0].second.second;
+        for(int i=1;i<n;i++){
+            if(t[i].second.first > l){
+                c++;
+                l=t[i].second.second;
+            }
+        }
+        return c;
+    }
+};

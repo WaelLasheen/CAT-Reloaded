@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxVowels(string s, int k) {
+        int p1=0,p2=0,c=0,ans=0;
+        //set<char> m={'a','e','o','u','i'};
+        while(p2 <s.size() && c<k){
+            if(p2 < k){
+                if(s[p2]=='a' || s[p2]=='e' || s[p2]=='i'|| s[p2]=='o' || s[p2]=='u') c++;
+                p2++;
+            }
+            else{
+                if(s[p1]=='a' || s[p1]=='e' || s[p1]=='i'|| s[p1]=='o' || s[p1]=='u') c--;
+                if(s[p2]=='a' || s[p2]=='e' || s[p2]=='i'|| s[p2]=='o' || s[p2]=='u') c++;
+                p1++;
+                p2++;
+            }
+            ans = max(ans,c);
+        }
+        return ans;
+    }
+};

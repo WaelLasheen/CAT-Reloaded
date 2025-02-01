@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int s,e,m=0;   //start , ens , max XOR
+    cin>>s>>e;
+    for(int i=s;i<=e;i++){
+        for(int j=i;j<=e;j++){
+            m=max(m,i^j);
+        }
+    }
+    cout<<m;
+
+    return 0;
+}

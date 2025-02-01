@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int minimizeXor(int num1, int num2) {
+        int b2= __builtin_popcount(num2);
+        int b1= __builtin_popcount(num1);
+        int out=0;
+        if(b1==b2) return num1;
+        bitset<32> bn(num1);
+        string n= bn.to_string();
+        for(int i=0;i<32;i++){
+            if(n[i]=='1'){
+                out +=(1<<(31-i));
+                b2--;
+            }
+            if(!b2) return out;
+        }
+        reverse(n.begin(),n.end());
+        for(int i=0;i<32;i++){
+            if(n[i]=='0'){
+                out +=(1<<i);
+                b2--;
+            }
+            if(!b2) return out;
+        }
+        return out;
+    }
+};

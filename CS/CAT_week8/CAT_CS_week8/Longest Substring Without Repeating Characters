@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int c=0,ans=0,p1=0,p2=0;     // counter  answer   pointer
+        set<char> w;
+        while(p2<s.size()){
+            if(w.find(s[p2]) == w.end()){
+                w.insert(s[p2]);
+                c++;
+                ans=max(ans,c);
+                p2++;
+
+            }
+            else{
+                w.erase(s[p1]);
+                p1++;
+                c--;
+            }
+        }
+        return ans;
+    }
+};

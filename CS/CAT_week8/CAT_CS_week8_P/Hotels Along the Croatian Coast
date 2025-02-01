@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    long n,m,p=0;
+    long long sum=0,out=0;
+    cin>>n>>m;
+    long num[n];
+    for(int i=0;i<n;i++){
+        cin>>num[i];
+        sum +=num[i];
+        while(sum>m){
+            sum -=num[p];
+            p++;
+        }
+        out=max(out,sum);
+    }
+    cout<<out;
+
+    return 0;
+}

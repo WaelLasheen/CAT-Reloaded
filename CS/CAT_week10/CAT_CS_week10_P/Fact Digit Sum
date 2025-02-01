@@ -1,0 +1,20 @@
+class Solution{
+	public:
+	vector<int> FactDigit(int N)
+	{
+	    vector<int>out;
+	    long fact[]={1,2,6,24,120,720,5040,40320,362880};
+	    int p=8;    // pointer start at : 9!
+	    while(N>0){
+	        if(fact[p] <= N){
+	            N -=fact[p];
+	            out.push_back(p+1);
+	        }
+	        else{
+	            p--;
+	        }
+	    }
+	    reverse(out.begin(),out.end());
+	    return out;
+	}
+};

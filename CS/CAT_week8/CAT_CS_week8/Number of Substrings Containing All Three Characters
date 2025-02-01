@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        int ans=0,p1=0,p2=0;
+        map<char,int>m;
+        while(p2<s.size()){
+            m[s[p2]]++;
+            while(p1<s.size() && m['a']>0 && m['b']>0 && m['c']>0){
+                m[s[p1]]--;
+                p1++;
+            }
+            ans +=p1;
+            p2++;
+        }
+        return ans;
+    }
+};

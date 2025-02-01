@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int c=0,sum=0;
+        for(int j=0;j<k;j++) sum +=arr[j];   // value of first sub array
+        if(sum/k >=threshold) c++;
+        for(int i=1;i<arr.size()-k+1;i++){
+            sum = sum + arr[i+k-1] - arr[i-1];
+            if(sum/k >= threshold) c++;
+        }
+        return c;
+    }
+};

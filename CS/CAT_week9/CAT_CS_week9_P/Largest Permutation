@@ -1,0 +1,20 @@
+class Solution{
+    public:
+    void KswapPermutation(int arr[], int n, int k)
+    {
+        int index[n+1];
+        for(int i=0;i<n;i++){
+            index[arr[i]]=i;
+        }
+        
+        for(int i=0;i<n && k>0;i++){
+            if(arr[i]==n-i)
+                continue;
+            
+            int ti=index[n-i];      // target index
+            swap(arr[i],arr[ti]);   // swapping current eleent with wanted element
+            swap(index[ arr[i] ] , index[ arr[ti] ]);   // swapping index in index map
+            k--;
+        }
+    }
+};

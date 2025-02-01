@@ -1,0 +1,53 @@
+class Solution {
+  public:
+    string BalancedString(int N) {
+        // code here
+        string alpha="abcdefghijklmnopqrstuvwxyz" , out="";
+        if(N%2==0){
+            while(N){
+            if(N>26){
+                out +=alpha;
+                N -=26;
+            }
+            else{
+                out +=alpha.substr(0,N/2);
+                out +=alpha.substr(26-N/2,N/2);
+                N=0;
+            }}
+        }
+        else{
+            int n=N , sum=0;
+            while(n){
+                sum +=(n%10);
+                n /=10;
+            }
+            
+            while(N){
+                int l=(N+1)/2 , s=(N-1)/2;
+                if(sum %2==0){
+                    if(N>26){
+                        out +=alpha;
+                        N -=26;
+                    }
+                    else{
+                        out +=alpha.substr(0,l);
+                        out +=alpha.substr(26-s,s);
+                        N=0;
+                    }
+                }
+                else{
+                    if(N>26){
+                        out +=alpha;
+                        N -=26;
+                    }
+                    else{
+                        out +=alpha.substr(0,s);
+                        out +=alpha.substr(26-l,l);
+                        N=0;
+                    }
+                }
+            }
+        }
+        return out;
+    }
+};

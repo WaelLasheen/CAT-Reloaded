@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        vector<int>ans;
+        sort(nums.begin(),nums.end());
+        if(nums[0] != nums[1]) ans.push_back(nums[0]);
+        int s=nums.size();
+        if(nums[s-1] != nums[s-2]) ans.push_back(nums[s-1]);
+        for(int i=1;i<s-1;i++){
+            if(nums[i] != nums[i+1] && nums[i] != nums[i-1]) ans.push_back(nums[i]);
+            if(ans.size() ==2) return ans;
+        }
+        return ans;
+    }
+};

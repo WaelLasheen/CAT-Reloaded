@@ -1,0 +1,15 @@
+class Solution{
+public:
+    int minStep(int h, int u, int d){
+        // code here
+        int c=0;
+        while(true){
+            h -=u;
+            c++;
+            if(h<0)
+                break;
+            h +=d;
+        }
+        return c;
+    }
+};

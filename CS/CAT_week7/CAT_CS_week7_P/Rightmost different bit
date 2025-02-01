@@ -1,0 +1,14 @@
+class Solution
+{
+    public:
+    //Function to find the first position with different bits.
+    int posOfRightMostDiffBit(int m, int n)
+    {
+        bitset<32> bn1(m),bn2(n);
+        string x=bn1.to_string(),y=bn2.to_string();
+        for(int i=31;i>=31-max(log2(m), log2(n));i--){
+            if (x[i] != y[i])
+            return 32-i;
+        }
+        return -1;
+    }

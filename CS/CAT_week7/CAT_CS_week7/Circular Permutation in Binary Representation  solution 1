@@ -1,0 +1,23 @@
+class Solution {
+public:
+
+    void solve(int n,int start,vector<int>& out,set<int>& nums){
+        for(int i=0;i<n;i++){
+            int next= start^(1<<i);
+            if(nums.find(next) == nums.end()){
+                out.push_back(next);
+                nums.insert(next);
+                solve(n,next,out,nums);
+            }
+        }
+    }
+
+    vector<int> circularPermutation(int n, int start) {
+        vector<int>out;
+        set<int>nums;
+        out.push_back(start);
+        nums.insert(start);
+        solve(n,start,out,nums);
+        return out;
+    }
+};

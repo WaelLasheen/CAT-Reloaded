@@ -1,0 +1,23 @@
+int maximumSum( int n,int m, vector<vector<int>> &a) {
+
+    // Complete the function
+    for(int i=0;i<n;i++){
+        sort(a[i].begin(),a[i].end());
+    }
+    int s=a[n-1][m-1],sum=s;
+    for(int i=n-2;i>=0;i--){
+        int j=m-1;
+        while(j>=0){
+            if(a[i][j]<s){
+                s=a[i][j];
+                sum +=s;
+                break;
+            }
+            else if(j==0 && a[i][j]>=s){
+                    return 0;
+            }
+            j--;
+        }
+    }
+    return sum;
+}

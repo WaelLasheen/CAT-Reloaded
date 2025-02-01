@@ -1,0 +1,29 @@
+#include <iostream>
+#include <bitset>
+#include <cmath>
+
+using namespace std;
+
+void fastIO(void) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+
+int main() {
+    fastIO();
+    int t;
+    cin>>t;
+    while(t--){
+        long long n;
+        cin>>n;
+        int nob = log2(n)+1;     // number of bits
+        bitset<64> bn (n);
+        string z = bn.to_string();
+        long c=0;
+        for(int i=63;i>63-nob;i--) if(z[i]=='0') c++;
+        cout<<c<<'\n';
+    }
+
+	return 0;
+}

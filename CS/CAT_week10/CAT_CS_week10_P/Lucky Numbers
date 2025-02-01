@@ -1,0 +1,21 @@
+class Solution{
+public:
+    
+    bool check(int p,int s){    // position of the numper  &  step of deleting
+        // if step is bigger than position this mean the number won't deleted
+        if(s>p)
+            return true;
+        // if number's position is dobulcating to step this mean it will deleted
+        if(p%s ==0)
+            return false; 
+        // other wise we will increase step and repeate process after determine the new position
+        // new position will decrease by the number of deleted number
+        // new position = old position - (old position / step)
+        return check(p - (p/s) , s+1);
+    }
+    
+    bool isLucky(int n) {
+        int c=2;    // the start of the counter
+        return check(n,c);
+    }
+};

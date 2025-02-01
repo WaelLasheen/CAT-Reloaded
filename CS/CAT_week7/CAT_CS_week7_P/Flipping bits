@@ -1,0 +1,25 @@
+#include <iostream>
+#include <bitset>
+using namespace std;
+
+
+void fastIO(void) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
+
+
+int main() {
+    fastIO();
+    int q;
+    cin>>q;
+    while(q--){
+        unsigned long long dn;           // decimal number
+        cin>>dn;
+        bitset<32> bn(dn);              // convert decimal number to binary number of 32 bits
+        bn = ~bn;                       // 0 to 1 and 1 to 0 
+        cout<< bn.to_ulong()<<'\n';     // convert to decimal
+    }
+    return 0;
+}

@@ -1,0 +1,8 @@
+class Solution {
+  public:
+    int findPosition(int n) {
+        double c = fmod(log2(n), 1);
+        if(c != 0) return -1;
+        return log2(n)+1;
+    }
+};

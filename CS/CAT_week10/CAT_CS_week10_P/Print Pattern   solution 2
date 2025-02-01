@@ -1,0 +1,19 @@
+    vector<int> pattern(int N){
+        vector<int>out;
+        bool k=true;
+        int cond=N;
+        out.push_back(N);
+        a:if(N>0 && N <=cond && k){
+            N -=5;
+            out.push_back(N);
+            goto a;
+        }
+        else if(N <cond){
+            k=false;
+            N +=5;
+            out.push_back(N);
+            goto a;
+        }
+        return out;
+    }
+};

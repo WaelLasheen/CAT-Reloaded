@@ -1,0 +1,21 @@
+class Solution {
+private:
+    static bool cmp(vector<int>& a ,vector<int>& b){
+        return a[1]<b[1];
+    }
+public:
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        sort(intervals.begin(),intervals.end(),cmp);
+        int end= INT_MIN;
+        int skip=0;
+        for(vector<int>interval : intervals){
+            if(interval[0]>=end){
+                end = interval[1];
+            }
+            else{
+                skip++;
+            }
+        }
+        return skip;
+    }
+};

@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int longestNiceSubarray(vector<int>& nums) {
+        int r=0,l=0,c=0,ans=0;       // right   left  current   pointers
+        while(r<nums.size()){
+            while((c & nums[r]) >0){
+                c ^=nums[l];
+                l++;
+            }
+            c |= nums[r];
+            ans = max(ans , (r-l+1));
+            r++;
+        }
+        return ans;
+    }
+};

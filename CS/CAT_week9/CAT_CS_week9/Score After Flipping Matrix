@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int matrixScore(vector<vector<int>>& grid) {
+        int r = grid.size();
+        int c = grid[0].size();
+        int sum = 0;
+        vector<int> zc(c, 0);
+        vector<int> oc(c, 0);
+        for (int i = 0; i < r; i++) {
+            if (grid[i][0] == 0) {
+                for (int j = 0; j < c; j++) {
+                    grid[i][j] = !grid[i][j];
+                }
+            }
+            for (int j = 0; j < c; j++) {
+                grid[i][j] == 0 ? zc[j]++ : oc[j]++;
+            }
+        }
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (zc[j] > oc[j]) {
+                    grid[i][j] = !grid[i][j];
+                }
+                sum += (grid[i][j] * pow(2, c - 1 - j));
+            }
+        }
+        return sum;
+    }
+};

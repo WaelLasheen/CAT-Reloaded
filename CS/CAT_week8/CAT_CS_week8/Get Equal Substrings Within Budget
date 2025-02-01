@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int equalSubstring(string s, string t, int maxCost) {
+        int p1=0,p2=0,c=0,l=0;     // start , end , cost , length
+        while(p1<s.size()){
+            c +=abs(s[p1]-t[p1]);
+            while(c > maxCost){
+                c -=abs(s[p2]-t[p2]);
+                p2++;
+            }
+            l=max(l,p1-p2+1);
+            p1++;
+        }
+        return l;
+    }
+};

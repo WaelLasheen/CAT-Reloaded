@@ -1,0 +1,10 @@
+class Solution {
+  public:
+    long long reversedBits(long long X) {
+        bitset<32> bn(X);
+        string z= bn.to_string();
+        reverse(z.begin(),z.end());
+        bitset<32> bits(z);
+        return bits.to_ulong();
+    }
+};

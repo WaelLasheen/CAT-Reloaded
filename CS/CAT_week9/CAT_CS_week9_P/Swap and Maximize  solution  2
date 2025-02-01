@@ -1,0 +1,13 @@
+long long int maxSum(int arr[], int n)
+{
+    sort(arr,arr+n);
+    long long sum=0;
+    int s=0,e=n-1;
+    while(s<n){
+        sum +=(abs(arr[s]-arr[e]));
+        s++;
+        e--;
+    }
+    
+    return sum;
+}

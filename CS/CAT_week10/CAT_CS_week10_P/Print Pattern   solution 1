@@ -1,0 +1,28 @@
+class Solution{
+public:
+
+    vector<int> out ; // global variable "vector"
+    
+    vector<int> sub(int n,int stop){
+       out.push_back(n);
+       if(n>0)
+           sub(n-5,stop);
+        else
+            add(n+5,stop);
+       return out;
+    }
+    
+    vector<int> add(int n,int stop){
+        out.push_back(n);
+        if(n!=stop)
+            add(n+5,stop);
+        return out;
+    }
+    
+    vector<int> pattern(int N){
+       out.push_back(N);
+       sub(N-5,N);
+       return out;
+    }
+};
+
