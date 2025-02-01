@@ -1,0 +1,22 @@
+class RecentCounter {
+public:
+    vector<int> q;
+    RecentCounter() {
+        
+    }
+    
+    int ping(int t) {
+        q.push_back(t);
+        int c=0;
+        for(int i:q){
+            if(i>=t-3000 && i<=t) c++;
+        }
+        return c;
+    }
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */

@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int s=nums.size();
+        sort(nums.begin(),nums.end());
+        if(nums[s-1] !=s) return s;
+        for(int i=0;i<s-1;i++){if(nums[i]+1 !=nums[i+1]) return i+1;}
+        return 0;
+    }
+};

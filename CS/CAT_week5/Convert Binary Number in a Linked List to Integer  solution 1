@@ -1,0 +1,35 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        long n=0,i=0;
+        ListNode* curr_node=reverseList( head);
+
+        while(curr_node != NULL){
+            n += curr_node->val *pow(2,i);
+            i++;
+            curr_node= curr_node->next;
+        }
+        return n;
+    }
+        ListNode* reverseList(ListNode* head) {
+        ListNode* prev_node =NULL;   
+        ListNode* curr_node =head;   
+        while(curr_node != NULL){
+            ListNode* next_node= curr_node-> next;   
+            curr_node-> next = prev_node;           
+            prev_node = curr_node;
+            curr_node = next_node;
+        }
+        return prev_node;
+    }
+};

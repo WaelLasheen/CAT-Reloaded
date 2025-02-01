@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int re_num=0,a=1;
+        for(int i:arr){
+            for(a;a<i;a++){ re_num=a;k--;if(k==0) break;}
+            a=i+1;
+            if(k==0) break;
+        }
+        if(k !=0) re_num=arr[arr.size()-1]+k;;
+        return re_num;
+    }
+};

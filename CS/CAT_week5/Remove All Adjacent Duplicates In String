@@ -1,0 +1,11 @@
+class Solution {
+public:
+    string removeDuplicates(string s) {
+        string ans;
+        for(char i:s){
+            if(ans.empty() || ans.back() !=i) ans.push_back(i);
+            else if(ans.back()==i) ans.pop_back();
+        }
+        return ans;
+    }
+};

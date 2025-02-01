@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        string a,b;
+        int hash=0;
+        for(int i=s.size()-1;i>-1;i--){
+            if(s[i] =='#')hash++;
+            if(s[i] !='#'){
+                if(hash ==0)
+                a = s[i]+a;
+                else
+                hash--;
+            }
+        }
+        hash=0;
+        for(int i=t.size()-1;i>-1;i--){
+            if(t[i] =='#')hash++;
+            if(t[i] !='#'){
+                if(hash ==0)
+                b = t[i]+b;
+                else
+                hash--;
+            }
+        }
+        if(a==b)return true;
+        return false;
+    }
+};

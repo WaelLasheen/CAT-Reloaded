@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int daysBetweenDates(string date1, string date2) {
+        int y1 = get_days(stoi(date1.substr(0,4)) , stoi(date1.substr(5,2)) , stoi(date1.substr(8,2)));
+        int y2 = get_days(stoi(date2.substr(0,4)) , stoi(date2.substr(5,2)) , stoi(date2.substr(8,2)));
+        return abs(y2-y1);
+    }
+    int get_days(int y, int m, int d){
+        int res =0;
+        for(int i=1970;i<y;i++){
+            if(is_leap_yeay(i))
+            res +=366;
+            else
+            res +=365;
+        }
+        int mon[]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        for(int i=0;i<m-1;i++){
+            res += mon[i];
+            if(i==1 && is_leap_yeay(y))
+            res ++;
+        }
+        res +=d;
+        return res;
+    }
+    bool is_leap_yeay(int Y){
+        return (Y % 4 == 0 && Y % 100 != 0 ) || Y % 400 == 0;
+    }
+};

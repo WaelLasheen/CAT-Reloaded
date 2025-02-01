@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int nums=0,i=1;
+        while(n>0){
+            n-=i;
+            if(n>=0) nums++;
+            i++;
+        }
+        return nums;
+    }
+};

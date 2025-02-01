@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        stack<int> a;
+        for (string i : operations) {
+            if (i == "+") {
+                int top = a.top();
+                a.pop();
+                int new_top = top + a.top();
+                a.push(top);
+                a.push(new_top);
+            } 
+            else if (i == "D") a.push(2 * a.top());
+            else if (i == "C") a.pop();
+            else a.push(stoi(i));
+        }
+        int sum = 0;
+        while (!a.empty()) {
+            sum += a.top();
+            a.pop();
+        }
+        return sum;
+    }
+};

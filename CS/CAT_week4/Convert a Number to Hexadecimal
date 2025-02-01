@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string toHex(int num) {
+        if (num == 0)
+        return "0";
+      uint n = num;
+      string s;
+      while (n) {
+         int temp = n % 16;
+         if (temp <= 9)
+            s = (char)(48 + temp) + s;
+         else
+            s = (char)(87 + temp) + s;
+         n = n / 16;
+      }
+      return s;
+    }
+};

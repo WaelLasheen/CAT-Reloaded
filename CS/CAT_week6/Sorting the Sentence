@@ -1,0 +1,27 @@
+class Solution {
+public:
+    string sortSentence(string s) {
+        vector<string> wards;
+        //vector<int> orders;
+        string w="";
+        // seperating wards
+        for(char i:s){
+            if(i==' '){
+                wards.push_back(w);
+                w="";
+            }
+            else if(i>='1' && i<='9') w=i+w;
+            else w +=i;
+        }
+        wards.push_back(w);
+        sort(wards.begin(),wards.end());
+        w="";
+        for(string c:wards){
+            c = c.substr(1);
+            w+=c;
+            w+=" ";
+        }
+        w=w.substr(0, w.length() - 1);
+        return w;
+    }
+};

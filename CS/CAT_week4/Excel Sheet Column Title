@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        int cn;
+        char alph;
+        string ward;
+        while(columnNumber >0){
+            if(columnNumber %26 >0){
+            cn = columnNumber %26 +64;
+            columnNumber = columnNumber / 26;
+            alph = (char)cn;
+            }
+            else{
+            alph ='Z';
+            columnNumber = columnNumber / 26 -1;
+            }
+
+            ward.insert(0,1,alph);
+        }
+        return ward;
+    }
+};

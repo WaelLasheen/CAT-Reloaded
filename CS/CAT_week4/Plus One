@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        reverse(digits.begin(),digits.end());
+        vector<int>ans;
+        int r=1;
+        for(int i:digits){
+            if(i+r<10){
+                ans.push_back(i+r);
+                r=0;
+            }
+            else{
+                ans.push_back(0);
+            }
+        }
+        if(r==1)
+        ans.push_back(1);
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};

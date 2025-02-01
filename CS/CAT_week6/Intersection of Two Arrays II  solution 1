@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>n;
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        for(int i:nums1){
+            for(int j=0;j<nums2.size();j++){
+                if(i>nums2[j]){
+                    nums2.erase(nums2.begin()+j);
+                    j--;
+                }
+                else if(i<nums2[j]) break;
+                else{
+                    n.push_back(i);
+                    nums2.erase(nums2.begin()+j);
+                    j--;
+                    break;
+                }
+            }
+        }
+        return n;
+    }
+};

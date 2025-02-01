@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& coordinates) {
+        for(int i=1;i<coordinates.size()-1;i++){
+            int x1_diff = coordinates[0][0]-coordinates[i+1][0];
+            int y1_diff = coordinates[0][1]-coordinates[i+1][1];
+            int x2_diff = coordinates[i][0]-coordinates[i+1][0];
+            int y2_diff = coordinates[i][1]-coordinates[i+1][1];
+            if(x1_diff * y2_diff == x2_diff * y1_diff)
+            continue;
+            return false;
+        }
+        return true;
+    }
+};
+
+

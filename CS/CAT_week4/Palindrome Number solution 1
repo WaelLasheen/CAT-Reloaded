@@ -1,0 +1,11 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        string n = to_string(x);
+        string fl = n;
+        reverse(n.begin(),n.end());
+        if(n==fl)
+        return true;
+        return false;
+    }
+};

@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
+        sort(nums.begin(),nums.end());
+        vector<int> sum;
+        int n=0;
+        for(int i:nums) {
+            n +=i;
+            sum.push_back(n);
+        }
+        vector<int>ans;
+        for(int i:queries){
+            int l=0,r=nums.size()-1,m,e=nums.size()-1;
+            while(l<=r){
+                m=(l+r)/2;
+                if(i>=sum.back()){
+                    ans.push_back(e+1);
+                    break;
+                }
+                else if(i<=sum[0]){
+                    ans.push_back(0);
+                    break;
+                }
+                else if(i>=sum[m] && i<=sum[m+1]){
+                    ans.push_back(m+1);
+                    break;
+                }
+                else if(i<sum[m]) r=m-1;
+                else if(i>sum[m]) l=m+1;
+            }
+        }
+        if(ans.size()==0) ans.push_back(0);
+        return ans;
+    }
+};

@@ -1,0 +1,13 @@
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        set<int> n;
+        int z=0;
+        for(int i:arr){ n.insert(i); if(i==0)z++;}
+        if(z>1) return true;
+        for(int i:arr){
+            if(i%2 ==0 && i !=0 && n.find(i/2) != n.end()) return true;
+        }
+        return false;
+    }
+};
